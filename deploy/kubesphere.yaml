@@ -137,7 +137,7 @@ spec:
       serviceAccountName: ks-installer
       containers:
       - name: installer
-        image: "pixiake/shell-operator:test"
+        image: "luoyucumt/shell-operator"
         imagePullPolicy: "Always"
         volumeMounts:
           - name: kubesphere-config

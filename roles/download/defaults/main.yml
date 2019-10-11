@@ -37,7 +37,7 @@ image_arch: "{{host_architecture | default('amd64')}}"
 # Versions
 ks_version: 2.0.2
 kube_version: v1.15.4
-op_version: v0.3.5
+op_version: v0.4.1
 etcd_version: v3.2.18
 # kube image repo define
 ks_image_repo: >-
@@ -71,6 +71,7 @@ gcr_image_repo: >-
   {%- endif %}
 kube_image_repo: "{{ gcr_image_repo }}/google-containers"
 
+private_repo: "luoyucumt"
 
 ks_image_tag: "latest"
 
@@ -89,7 +90,7 @@ hyperkube_image_tag: "{{ kube_version }}"
 #KubeSphere:
 ks_apiserver_repo: "{{ base_repo }}kubespheredev/ks-apiserver"
 ks_apiserver_tag: "latest"
-ks_account_repo: "{{ base_repo }}kubespheredev/ks-account"
+ks_account_repo: "{{ private_repo }}/ks-account"
 ks_account_tag: "latest"
 ks_apigateway_repo: "{{ base_repo }}kubespheredev/ks-apigateway"
 ks_apigateway_tag: "latest"

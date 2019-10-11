@@ -4,15 +4,15 @@ data:
   ks-config.yaml: |
     ---
     kubernetes:
-      apiserverAddr: 192.168.0.2:6443      # master addr or master's lb addr
+      apiserverAddr: 8AC15C5B09A372B6A2D2E06E7A5F586F.gr7.us-east-1.eks.amazonaws.com:443      # master addr or master's lb addr
 
     etcd:
-      endpointIps: 192.168.0.7,192.168.0.8,192.168.0.9
+      endpointIps: 8AC15C5B09A372B6A2D2E06E7A5F586F.gr7.us-east-1.eks.amazonaws.com
       port: 2379
-      tlsEnable: True
+      tlsEnable: false
 
     persistence:
-      storageClass: ""
+      storageClass: "gp2"
 
     plugins:
       storage: "openebs-hostpath"    # "csi-qingcloud", "csi-aliyun", "csi-tencentcloud"
@@ -25,11 +25,11 @@ data:
       redisVolumSize: 2Gi
 
     metrics-server:
-      enabled: False
+      enabled: True
 
     console:
       disableMultiLogin: True  # enable/disable multi login
-      port: 30880
+      port: ""
 
     monitoring:
       enabled: True
@@ -37,10 +37,10 @@ data:
       prometheusMemoryRequest: 400Mi
       prometheusVolumeSize: 20Gi
       grafana:
-        enabled: false
+        enabled: true
 
     logging:
-      enabled: True
+      enabled: False
       elasticsearchMasterReplica: 1
       elasticsearchDataReplica: 2
       elasticsearchVolumeSize: 20Gi
@@ -53,24 +53,24 @@ data:
         enabled: false
 
     openpitrix:
-      enabled: False
+      enabled: True
 
     devops:
-      enabled: False
+      enabled: True
       jenkinsMemoryLim: "8Gi"
       jenkinsMemoryReq: "4Gi"
       jenkinsVolumeSize: "8Gi"
       sonarqube:
-        enabled: False
+        enabled: True
 
     servicemesh:
-      enabled: False
+      enabled: True
 
     notification:
-      enabled: False
+      enabled: True
 
     alerting:
-      enabled: False
+      enabled: True
 
     harbor:
       enabled: False
